@@ -117,4 +117,3 @@ def handle_allD_command(message):
         bot.reply_to(message, "You are not authorized to perform this action.")
 
 # بدء تشغيل البوت باستخدام polling
-bot.polling()
