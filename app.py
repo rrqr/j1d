@@ -1,10 +1,6 @@
 
 import requests
 import telebot
-from flask import Flask, request
-
-# إعداد Flask
-app = Flask(__name__)
 
 # رمز الوصول للبوت
 TOKEN = '7761188365:AAGl-tdVAuMNfkgfWEgNovKHNXEqT3-Bsic'
@@ -18,9 +14,6 @@ authorized_users = set()  # نستخدم مجموعة لتسهيل عمليات 
 
 # معرف المالك (يمكن تغييره إلى معرف المالك الحقيقي)
 OWNER_ID = 6358035274
-
-# نقطة النهاية لـ Webhook
-WEBHOOK_URL = f'https://j1d-evuq.vercel.app/{TOKEN}'
 
 @bot.message_handler(commands=['add_user'])
 def add_user(message):
@@ -123,21 +116,5 @@ def handle_allD_command(message):
     else:
         bot.reply_to(message, "You are not authorized to perform this action.")
 
-@app.route(f'/{TOKEN}', methods=['POST'])
-def receive_update():
-    json_str = request.get_data().decode('UTF-8')
-    update = telebot.types.Update.de_json(json_str)
-    bot.process_new_updates([update])
-    return "!", 200
-
-@app.route('/', methods=['GET', 'POST'])
-def set_webhook():
-    if request.method == 'GET':
-        return "Webhook is live!"
-    elif request.method == 'POST':
-        bot.remove_webhook()
-        bot.set_webhook(url=WEBHOOK_URL)
-        return "Webhook set!", 200
-
-if __name__ == "__main__":
-    app.run(debug=True)
+# بدء تشغيل البوت باستخدام polling
+bot.polling()
