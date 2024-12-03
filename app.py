@@ -20,7 +20,7 @@ authorized_users = set()  # نستخدم مجموعة لتسهيل عمليات 
 OWNER_ID = 6358035274
 
 # نقطة النهاية لـ Webhook
-WEBHOOK_URL = f'https://j1d-evuq.vercel.app/7761188365:AAGl-tdVAuMNfkgfWEgNovKHNXEqT3-Bsic'
+WEBHOOK_URL = f'https://j1d-evuq.vercel.app/{TOKEN}'
 
 @bot.message_handler(commands=['add_user'])
 def add_user(message):
