@@ -7,7 +7,7 @@ TOKEN = '7761188365:AAGl-tdVAuMNfkgfWEgNovKHNXEqT3-Bsic'
 bot = telebot.TeleBot(TOKEN)
 
 # مفتاح API الخاص بـ LeakCheck
-API_KEY = 'a2b67d7e2c37ee2f5946bb639c08f0c0dcb287dc'
+API_KEY = '27c45c71cacc0dddb973895cbd30984f67d585a6'
 
 # قائمة معرفات المستخدمين المصرح لهم
 authorized_users = set()  # نستخدم مجموعة لتسهيل عمليات الإضافة والإزالة
